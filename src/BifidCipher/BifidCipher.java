@@ -55,6 +55,16 @@ class BifidCipherDecrypt extends PolybiusSquare {
         int half = firstStep.size() / 2;
         ArrayList<Integer> rowIndexes = new ArrayList<>(firstStep.subList(0, half));
         ArrayList<Integer> colIndexes = new ArrayList<>(firstStep.subList(half, firstStep.size()));
+
+        StringBuilder decryptedMessage = new StringBuilder();
+        for (int i = 0; i < rowIndexes.size(); i++) {
+            int index1 = rowIndexes.get(i);
+            int index2 = colIndexes.get(i);
+            decryptedMessage.append(numbersToLetter(index1, index2));
+        }
+
+        return decryptedMessage.toString();
+    }
 }
 
 // Klasa kryesore që përdor kodimin dhe dekodimin
