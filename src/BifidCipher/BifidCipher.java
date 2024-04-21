@@ -52,7 +52,19 @@ class BifidCipherEncrypt extends PolybiusSquare {
             firstStepRow.add(indexes[0]);
             firstStepCol.add(indexes[1]);
         }
-        return "";
+
+        ArrayList<Integer> secondStep = new ArrayList<>();
+        secondStep.addAll(firstStepRow);
+        secondStep.addAll(firstStepCol);
+
+        StringBuilder encryptedMessage = new StringBuilder();
+        for (int i = 0; i < secondStep.size(); i += 2) {
+            int index1 = secondStep.get(i);
+            int index2 = secondStep.get(i + 1);
+            encryptedMessage.append(numbersToLetter(index1, index2));
+        }
+
+        return encryptedMessage.toString();
     }
 }
 
@@ -86,5 +98,6 @@ class BifidCipherDecrypt extends PolybiusSquare {
 // Klasa kryesore që përdor kodimin dhe dekodimin
 public class BifidCipher {
     public static void main(String[] args) {
+
     }
 }
