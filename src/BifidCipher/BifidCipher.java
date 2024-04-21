@@ -1,5 +1,7 @@
 package BifidCipher;
 
+import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class PolybiusSquare {
@@ -37,10 +39,24 @@ class PolybiusSquare {
 
 }
 
+// Klasa per enkriptim
 class BifidCipherEncrypt extends PolybiusSquare {
+    public String encrypt(String message) {
+        message = message.toLowerCase().replaceAll("\\s+", "").replace("j", "i");
 
+        ArrayList<Integer> firstStepRow = new ArrayList<>();
+        ArrayList<Integer> firstStepCol = new ArrayList<>();
+
+        for (char letter : message.toCharArray()) {
+            int[] indexes = letterToNumbers(letter);
+            firstStepRow.add(indexes[0]);
+            firstStepCol.add(indexes[1]);
+        }
+        return "";
+    }
 }
 
+// Klasa per dekriptim
 class BifidCipherDecrypt extends PolybiusSquare {
     public String decrypt(String message) {
         message = message.toLowerCase().replaceAll("\\s+", "").replace("j", "i");
