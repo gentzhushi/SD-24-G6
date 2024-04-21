@@ -98,6 +98,27 @@ class BifidCipherDecrypt extends PolybiusSquare {
 // Klasa kryesore që përdor kodimin dhe dekodimin
 public class BifidCipher {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Zgjidhni 'encode' për të koduar ose 'decode' për të dekoduar: ");
+        String mode = scanner.nextLine().trim().toLowerCase();
+
+        if (mode.equals("encode")) {
+            System.out.print("Shkruani mesazhin për të koduar: ");
+            String message = scanner.nextLine();
+            BifidCipherEncrypt encoder = new BifidCipherEncrypt();
+            String encodedMessage = encoder.encrypt(message);
+            System.out.println("Mesazhi i koduar: " + encodedMessage);
+        } else if (mode.equals("decode")) {
+            System.out.print("Shkruani mesazhin për të dekoduar: ");
+            String message = scanner.nextLine();
+            BifidCipherDecrypt decoder = new BifidCipherDecrypt();
+            String decodedMessage = decoder.decrypt(message);
+            System.out.println("Mesazhi i dekoduar: " + decodedMessage);
+        } else {
+            System.out.println("Zgjedhje e pavlefshme. Ju lutem zgjidhni 'encode' ose 'decode'.");
+        }
+
+        scanner.close();
     }
 }
