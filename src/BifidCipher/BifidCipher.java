@@ -42,7 +42,11 @@ class BifidCipherEncrypt extends PolybiusSquare {
 }
 
 class BifidCipherDecrypt extends PolybiusSquare {
+    public String decrypt(String message) {
+        message = message.toLowerCase().replaceAll("\\s+", "").replace("j", "i");
 
+        ArrayList<Integer> firstStep = new ArrayList<>();
+        for (char letter : message.toCharArray())
 }
 
 // Klasa kryesore që përdor kodimin dhe dekodimin
