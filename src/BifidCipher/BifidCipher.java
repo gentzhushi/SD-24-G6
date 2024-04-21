@@ -18,6 +18,23 @@ class PolybiusSquare {
             }
         }
     }
+    public int[] letterToNumbers(char letter) {
+        if (letter == 'j') {
+            letter = 'i'; // trajto 'j' si 'i'
+        }
+
+        int[] indexes = charToCoord.get(letter); // marrja e koordinatave
+        if (indexes == null) { // nëse nuk është gjetur në hartë
+            throw new IllegalArgumentException("Karakteri '" + letter + "' nuk u gjet në tabelën Polybius.");
+        }
+
+        return indexes;
+    }
+
+    public char numbersToLetter(int index1, int index2) {
+        return SQUARE[index1 - 1][index2 - 1]; // kthimi nga 1-based në 0-based
+    }
+
 }
 
 class BifidCipherEncrypt extends PolybiusSquare {
