@@ -100,23 +100,23 @@ public class BifidCipher {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Zgjidhni 'encode' për të koduar ose 'decode' për të dekoduar: ");
+        System.out.print("Zgjidhni 'encrypt' për të enkriptuar ose 'decrypt' për të dekriptuar: ");
         String mode = scanner.nextLine().trim().toLowerCase();
 
-        if (mode.equals("encode")) {
-            System.out.print("Shkruani mesazhin për të koduar: ");
+        if (mode.equals("encrypt")) {
+            System.out.print("Shkruani mesazhin për të enkriptuar: ");
             String message = scanner.nextLine();
-            BifidCipherEncrypt encoder = new BifidCipherEncrypt();
-            String encodedMessage = encoder.encrypt(message);
-            System.out.println("Mesazhi i koduar: " + encodedMessage);
-        } else if (mode.equals("decode")) {
-            System.out.print("Shkruani mesazhin për të dekoduar: ");
+            BifidCipherEncrypt encrypted = new BifidCipherEncrypt();
+            String encodedMessage = encrypted.encrypt(message);
+            System.out.println("Mesazhi i enkriptuar: " + encodedMessage);
+        } else if (mode.equals("decrypt")) {
+            System.out.print("Shkruani mesazhin për të dekriptuar: ");
             String message = scanner.nextLine();
-            BifidCipherDecrypt decoder = new BifidCipherDecrypt();
-            String decodedMessage = decoder.decrypt(message);
-            System.out.println("Mesazhi i dekoduar: " + decodedMessage);
+            BifidCipherDecrypt decrypted = new BifidCipherDecrypt();
+            String decodedMessage = decrypted.decrypt(message);
+            System.out.println("Mesazhi i dekriptuar: " + decodedMessage);
         } else {
-            System.out.println("Zgjedhje e pavlefshme. Ju lutem zgjidhni 'encode' ose 'decode'.");
+            System.out.println("Zgjedhje e pavlefshme. Ju lutem zgjidhni 'encrypt' ose 'decrypt'.");
         }
 
         scanner.close();
