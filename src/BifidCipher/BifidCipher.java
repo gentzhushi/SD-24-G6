@@ -12,6 +12,7 @@ class PolybiusSquare {
             {'q', 'r', 's', 't', 'u'},
             {'v', 'w', 'x', 'y', 'z'}
     };
+
     protected final HashMap<Character, int[]> charToCoord = new HashMap<>();
     public PolybiusSquare() {
         for (int i = 0; i < SQUARE.length; i++) {
